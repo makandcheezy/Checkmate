@@ -512,7 +512,7 @@ export class SuperSimpleQueueHelper implements ISuperSimpleQueueHelper {
 			notificationReason: null,
 		};
 
-		if (!statusChanged) {
+		if (!statusChanged && !(prevStatus === "initializing" && (monitor.status === "down" || monitor.status === "breached"))) {
 			return decision;
 		}
 
